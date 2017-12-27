@@ -10,10 +10,10 @@ import UIKit
 
 extension UIView {
     
-    func addDummyDataSourceIfNeeded(scrollEnabled: Bool = true) {
+    func addDummyDataSourceIfNeeded(scrolling: Bool = true) {
         guard let collection = self as? CollectionSkeleton else { return }
         collection.addDummyDataSource()
-        collection.disableScrolling()
+        if !scrolling { collection.disableScrolling() }
     }
     
     func removeDummyDataSourceIfNeeded(reloadAfter reload: Bool = true) {
