@@ -12,6 +12,16 @@ import UIKit
 extension UIView {
     
     var maxBoundsEstimated: CGRect {
+        //        let maxSize : CGSize
+        //        let y : CGFloat
+        //        if let _ = self as? UILabel {
+        //            y = maxSizeEstimated.height / CGFloat(12)
+        //            maxSize = CGSize(width: maxSizeEstimated.width, height: maxSizeEstimated.height * 0.83)
+        //        } else {
+        //            maxSize = maxSizeEstimated
+        //            y = 0
+        //        }
+        //        return CGRect(origin: CGPoint(x: 0, y: -y), size: maxSize)
         return CGRect(origin: .zero, size: maxSizeEstimated)
     }
     
