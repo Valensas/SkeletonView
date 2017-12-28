@@ -52,7 +52,7 @@ public enum SkeletonType {
 struct SkeletonLayer {
     
     private var maskLayer: CALayer
-    private weak var holder: UIView?
+    private weak var holder: UIView!
     
     var type: SkeletonType {
         return maskLayer is CAGradientLayer ? .gradient : .solid
@@ -64,6 +64,7 @@ struct SkeletonLayer {
     
     init(withType type: SkeletonType, usingColors colors: [UIColor], andSkeletonHolder holder: UIView) {
         self.holder = holder
+        self.holder.alpha = 0.4
         self.maskLayer = type.layer
         self.maskLayer.anchorPoint = .zero
         self.maskLayer.bounds = holder.maxBoundsEstimated
@@ -72,7 +73,12 @@ struct SkeletonLayer {
     }
     
     func removeLayer() {
-        maskLayer.removeFromSuperlayer()
+        self.maskLayer.removeFromSuperlayer()
+        UIView.animate(withDuration: 0.6, delay: 0.0, options: .curveEaseIn, animations: {
+            self.holder.alpha = 1.0
+        }) { (completed) in
+            self.holder.alpha = 1.0
+        }
     }
     
     func addMultilinesIfNeeded() {
