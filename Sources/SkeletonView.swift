@@ -54,6 +54,7 @@ public extension UIView {
 extension UIView {
     
     func showSkeleton(withType type: SkeletonType = .solid, usingColors colors: [UIColor], animated: Bool = false, animation: SkeletonLayerAnimation? = nil) {
+        guard isSkeletonable else { return }
         addDummyDataSourceIfNeeded()
         recursiveSearch(inArray: subviewsSkeletonables,
                         leafBlock: {
