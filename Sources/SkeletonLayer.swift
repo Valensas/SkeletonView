@@ -76,9 +76,7 @@ struct SkeletonLayer {
         self.maskLayer.removeFromSuperlayer()
         UIView.animate(withDuration: 0.6, delay: 0.0, options: .curveEaseIn, animations: {
             self.holder.alpha = 1.0
-        }) { (completed) in
-            self.holder.alpha = 1.0
-        }
+        })
     }
     
     func addMultilinesIfNeeded() {
